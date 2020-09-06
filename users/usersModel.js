@@ -1,30 +1,30 @@
-const db = require("../database/migrations/config")
+const db = require('../config.js')
 
-async function add(user) {
-	const [id] = await db("users").insert(user)
-	return findById(id)
+/*const add = (user) => {
+	const [id] = db("users").insert(user)
+	return db(id)
 }
 
-function find() {
-	return db("users").select("id", "username")
-}
-
+const findUser = id => {
+	return db("users").select("id", "username").where({id}).first()
+};
+/*
 function findBy(filter) {
 	return db("users")
 		.select("id", "username", "password")
 		.where(filter)
+}*/
+
+const createNewUser = user => {
+    return db('users').insert(user);
 }
 
-function findById(id) {
-	return db("users")
-		.select("id", "username")
-		.where({ id })
-		.first()
+const findUser = () => {
+    const user = db('users').select('*').where({id})
+    return user
 }
-
 module.exports = {
-	add,
-	find,
-	findBy,
-	findById,
+	//add,
+	findUser,
+	createNewUser,
 }

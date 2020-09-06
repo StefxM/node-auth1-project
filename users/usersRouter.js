@@ -1,26 +1,21 @@
 const express = require("express")
 const Users = require("./usersModel")
 
+
 const router = express.Router()
 
 router.get("/users", async (req, res, next) => {
 	try {
-		res.json(await Users.find())
+		res.json(await Users.findUser())
 	} catch(err) {
 		next(err)
 	}
 })
-
+/*
 router.post("/users", async (req, res, next) => {
 	try {
 		const { username, password } = req.body
-		const user = await Users.findBy({ username }).first()
-
-		if (user) {
-			return res.status(409).json({
-				message: "Username is already taken",
-			})
-		}
+	
 
 		const newUser = await Users.add({
 			username,
@@ -50,6 +45,6 @@ router.post("/login", async (req, res, next) => {
 	} catch(err) {
 		next(err)
 	}
-})
+})*/
 
 module.exports = router
