@@ -1,17 +1,17 @@
 const express = require("express")
-const Users = require("./usersModel")
+//const Users = require("./usersModel")
 
 
 const router = express.Router()
 
-router.get("/users", async (req, res, next) => {
+/*router.get("/users", async (req, res, next) => {
 	try {
 		res.json(await Users.findUser())
 	} catch(err) {
 		next(err)
 	}
 })
-/*
+
 router.post("/users", async (req, res, next) => {
 	try {
 		const { username, password } = req.body
