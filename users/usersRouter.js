@@ -4,7 +4,7 @@ const Users = require("./usersModel")
 
 const router = express.Router()
 
-router.get('/users', (req, res) =>
+router.get('/', (req, res) =>
 {
     Users.find()
     .then(users =>
