@@ -3,7 +3,7 @@ const helmet = require("helmet")
 const cors = require("cors")
 const session = require("express-session")
 const KnexSessionStore = require("connect-session-knex")(session)
-const usersRouter = require("./users/usersRouter")
+//const usersRouter = require("./users/usersRouter")
 const authRouter = require("./auth/authRouter")
 const db = require("./config")
 
@@ -23,7 +23,7 @@ server.use(session({
 	}),
 }))
 
-server.use('/api/users',usersRouter)
+//server.use('/api/users',usersRouter)
 server.use('/api/auth', authRouter)
 
 server.use((err, req, res, next) => {
